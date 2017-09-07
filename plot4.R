@@ -62,8 +62,10 @@ for (pair in idx) {
 legend('topright',
        legend=names(dataset)[5:7],
        col=c('black','red','blue'),
-       lty=c(1,1,1))
+       lty=c(1,1,1),
+       bty='n')
 ## lower right
 with(dataset, plot(datetime, Global_reactive_power, type=,'n'))
 with(dataset, lines(datetime, Global_reactive_power, type=,'l'))
 dev.off()
+
