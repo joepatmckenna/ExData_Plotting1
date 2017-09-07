@@ -43,7 +43,7 @@ obs = with(dataset, datetime >= dmy(01022007) & datetime < dmy(03022007))
 dataset <- dataset[obs,]
 
 ## 4
-png(file='plot4.png')
+png(file='plot4.png',width=480,height=480)
 par(mfrow=c(2,2))
 ## upper left
 with(dataset, plot(datetime, Global_active_power, type='n', xlab='', ylab='Global Active Power'))
@@ -55,6 +55,10 @@ with(dataset, lines(datetime, Voltage, type='l'))
 idx = list(list(dataset$Sub_metering_1,'black'),
            list(dataset$Sub_metering_2,'red'),
            list(dataset$Sub_metering_3, 'blue'))
+legend('topright',
+       legend=names(dataset)[5:7],
+       col=c('black','red','blue'),
+       lty=c(1,1,1))
 plot(dataset$datetime, idx[[1]][[1]], type='n', xlab='', ylab='Energy sub metering')
 for (pair in idx) {
   lines(dataset$datetime, pair[[1]], type='l', col=pair[[2]])

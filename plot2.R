@@ -43,7 +43,7 @@ obs = with(dataset, datetime >= dmy(01022007) & datetime < dmy(03022007))
 dataset <- dataset[obs,]
 
 ## 2
-png(file='plot2.png')
+png(file='plot2.png',width=480,height=480)
 with(dataset,
      plot(datetime,
           Global_active_power,
