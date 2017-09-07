@@ -55,14 +55,14 @@ with(dataset, lines(datetime, Voltage, type='l'))
 idx = list(list(dataset$Sub_metering_1,'black'),
            list(dataset$Sub_metering_2,'red'),
            list(dataset$Sub_metering_3, 'blue'))
-legend('topright',
-       legend=names(dataset)[5:7],
-       col=c('black','red','blue'),
-       lty=c(1,1,1))
 plot(dataset$datetime, idx[[1]][[1]], type='n', xlab='', ylab='Energy sub metering')
 for (pair in idx) {
   lines(dataset$datetime, pair[[1]], type='l', col=pair[[2]])
 }
+legend('topright',
+       legend=names(dataset)[5:7],
+       col=c('black','red','blue'),
+       lty=c(1,1,1))
 ## lower right
 with(dataset, plot(datetime, Global_reactive_power, type=,'n'))
 with(dataset, lines(datetime, Global_reactive_power, type=,'l'))
